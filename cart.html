@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block body %}
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th>Melon Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if melon_list == [] %}
+    <tr>
+      <td>No melons selected</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    {% else %} {% for melon in melon_list %}
+    <tr>
+      <td>{{melon.common_name}}</td>
+      <td>{{melon.quantity}}</td>
+      <td>{{melon.price}}</td>
+      <td>{{melon.total_price}}</td>
+    </tr>
+    {% endfor %} {% endif %}
+  </tbody>
+</table>
+
+<h3>{{total_cost}}</h3>
+
+<a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
+
+{% endblock %}
